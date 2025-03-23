@@ -80,6 +80,7 @@ body {
     align-items: center;
     color: var(--cream);
     background-color: var(--brown);
+    box-shadow: 4px 0px 8px #333;
 }
 
 
@@ -98,6 +99,7 @@ body {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    box-shadow: 4px 4px 8px #333;
 }
 
 .sidebar > button {
@@ -184,6 +186,7 @@ input:invalid {
     gap: 1rem;
     background-color: var(--brown);
     border-radius: 8px;
+    box-shadow: 4px 4px 8px #333;
 }
 
 .card {
@@ -194,6 +197,17 @@ input:invalid {
     padding: 8px;
     display: grid;
     grid-template-rows: 1fr 1fr 2fr 1fr 1fr;
+    box-shadow: 4px 4px 8px #333;
+}
+
+.card p {
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.notes {
+    max-height: 8rem;
+    overflow: scroll;
 }
 
 .card-row {
@@ -225,6 +239,7 @@ input:invalid {
 }
 
 .last-row > button {
+    width: clamp(6rem, 15%, 8rem);
     padding: 0.2rem 1.2rem;
     background-color: var(--ebony);
     border: none;
@@ -234,6 +249,7 @@ input:invalid {
 
 button {
     transition: transform 0.3s ease;
+    box-shadow: 2px 2px 4px #333;
 }
 
 button:hover {
