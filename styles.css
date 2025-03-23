@@ -183,6 +183,7 @@ input:invalid {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-auto-rows: 250px;
     gap: 1rem;
     background-color: var(--brown);
     border-radius: 8px;
@@ -193,7 +194,6 @@ input:invalid {
     flex-direction: column;
     background-image: url(./images/background.jpg);
     border-radius: 8px;
-    height: 250px;
     padding: 8px;
     display: grid;
     grid-template-rows: 1fr 1fr 2fr 1fr 1fr;

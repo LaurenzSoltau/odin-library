@@ -48,7 +48,7 @@ function deleteBook(id) {
 }
 
 function displayBooks() {
-    library.innerHTML = "";
+    library.textContent = "";
     books.forEach((book) => {
         const currentCard = createCard(book);
         library.appendChild(currentCard);
@@ -57,67 +57,44 @@ function displayBooks() {
 
 function toggleRead(e) {
     const bookId = e.target.parentElement.parentElement.id;
-    let book = books.find(book => book.id === bookId);
+    let book = books.find((book) => book.id === bookId);
     book.read = !book.read;
     e.target.classList.toggle("not-read");
     e.target.textContent = book.read ? "read" : "not read";
 }
 
 function createCard(book) {
+    function createRow(wrapperClass, nameElement, valueElement, name, value) {
+        const cardRow = document.createElement("div");
+        cardRow.classList.add(wrapperClass);
+
+        const rowNameSpan = document.createElement(nameElement);
+        rowNameSpan.classList.add("name");
+        rowNameSpan.textContent = name;
+        const rowValueSpan = document.createElement(valueElement);
+        rowValueSpan.classList.add("value");
+        rowValueSpan.textContent = value;
+
+        cardRow.appendChild(rowNameSpan);
+        cardRow.appendChild(rowValueSpan);
+
+        return cardRow;
+    }
+
     const card = document.createElement("div");
     card.id = book.id;
     card.classList.add("card");
 
-    const firstCardRow = document.createElement("div");
-    firstCardRow.classList.add("card-row");
-    const titleNameSpan = document.createElement("span");
-    titleNameSpan.classList.add("name");
-    titleNameSpan.textContent = "Title";
-    const titleValueSpan = document.createElement("span");
-    titleValueSpan.classList.add("value");
-    titleValueSpan.textContent = book.title;
-
-    firstCardRow.appendChild(titleNameSpan);
-    firstCardRow.appendChild(titleValueSpan);
+    const firstCardRow = createRow("card-row", "span", "span", "Title", book.title);
     card.appendChild(firstCardRow);
 
-    const secondCardRow = document.createElement("div");
-    secondCardRow.classList.add("card-row");
-    const authorNameSpan = document.createElement("span");
-    authorNameSpan.classList.add("name");
-    authorNameSpan.textContent = "Author";
-    const authorValueSpan = document.createElement("span");
-    authorValueSpan.classList.add("value");
-    authorValueSpan.textContent = book.author;
-
-    secondCardRow.appendChild(authorNameSpan);
-    secondCardRow.appendChild(authorValueSpan);
+    const secondCardRow = createRow("card-row", "span", "span", "Author", book.author);
     card.appendChild(secondCardRow);
 
-    const notesDiv = document.createElement("div");
-    notesDiv.classList.add("notes");
-    const notesNameSpan = document.createElement("span");
-    notesNameSpan.classList.add("name");
-    notesNameSpan.textContent = "Notes";
-    const notesValueP = document.createElement("p");
-    notesValueP.classList.add("value");
-    notesValueP.textContent = book.notes;
-
-    notesDiv.appendChild(notesNameSpan);
-    notesDiv.appendChild(notesValueP);
+    const notesDiv = createRow("notes", "span", "p", "Notes", book.notes);
     card.appendChild(notesDiv);
 
-    const thirdCardRow = document.createElement("div");
-    thirdCardRow.classList.add("card-row");
-    const pagesNameSpan = document.createElement("span");
-    pagesNameSpan.classList.add("name");
-    pagesNameSpan.textContent = "Pages";
-    const pagesValueSpan = document.createElement("span");
-    pagesValueSpan.classList.add("value");
-    pagesValueSpan.textContent = book.pages;
-
-    thirdCardRow.appendChild(pagesNameSpan);
-    thirdCardRow.appendChild(pagesValueSpan);
+    const thirdCardRow = createRow("card-row", "span", "span", "Pages", book.pages);
     card.appendChild(thirdCardRow);
 
     const lastRow = document.createElement("div");
@@ -133,7 +110,7 @@ function createCard(book) {
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "Delete";
     deleteButton.classList.add("deleteButton");
-    deleteButton.addEventListener("click", e => {
+    deleteButton.addEventListener("click", (e) => {
         deleteBook(e.target.parentElement.parentElement.id);
     });
 
@@ -144,7 +121,18 @@ function createCard(book) {
     return card;
 }
 
-
-addBook("Das Schloss", "Franz Kafka", "Der Protagonist K. versucht vergeblich Zugang zu einer undurchschaubaren Bürokratie zu erhalten. Das Werk thematisiert Entfremdung, Machtstrukturen und die absurde Suche nach Anerkennung in einer unerreichbaren Instanz.", 302, false);
-addBook("The Handmaids Tale", "Margaret Atwood", "The Handmaid's Tale is a dystopian novel set in the totalitarian Republic of Gilead, where women are oppressed and forced into strict societal roles. The story follows Offred, a Handmaid, as she struggles to survive and reclaim her autonomy in a regime that controls women's bodies and freedoms.", 420, true);
+addBook(
+    "Das Schloss",
+    "Franz Kafka",
+    "Der Protagonist K. versucht vergeblich Zugang zu einer undurchschaubaren Bürokratie zu erhalten. Das Werk thematisiert Entfremdung, Machtstrukturen und die absurde Suche nach Anerkennung in einer unerreichbaren Instanz.",
+    302,
+    false
+);
+addBook(
+    "The Handmaids Tale",
+    "Margaret Atwood",
+    "The Handmaid's Tale is a dystopian novel set in the totalitarian Republic of Gilead, where women are oppressed and forced into strict societal roles. The story follows Offred, a Handmaid, as she struggles to survive and reclaim her autonomy in a regime that controls women's bodies and freedoms.",
+    420,
+    true
+);
 addBook("Placeholder", "Placeholder", "Placeholder notes", 123, true);
