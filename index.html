@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script defer src="./script.js"></script>
+        <link rel="stylesheet" href="./styles.css" />
+        <title>odin-library</title>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Laurenz Library</h1>
+        </div>
+        <div class="sidebar-section">
+            <div class="sidebar">
+                <button>Add Book</button>
+                <form action="">
+                    <div class="vertical-input-row">
+                        <label for="title">Title</label>
+                        <input required type="text" id="title" name="title" />
+                    </div>
+                    <div class="vertical-input-row">
+                        <label for="author">Author</label>
+                        <input required type="text" id="author" name="author" />
+                    </div>
+                    <div class="vertical-input-row">
+                        <label for="pages">Pages</label>
+                        <input required type="number" id="pages" name="pages" />
+                    </div>
+                    <div class="horizontal-input-row">
+                        <label for="read">Read?</label>
+                        <input type="checkbox" id="read" name="read" />
+                    </div>
+                    <div class="vertical-input-row">
+                        <label for="notes">Notes</label>
+                        <textarea name="notes" id="notes"></textarea>
+                    </div>
+                    <div class="submit">
+                        <button>Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="library-section">
+            <div class="library">
+                <div class="card">
+                    <div class="card-row">
+                        <span class="name">Title</span>
+                        <span class="value">Herr der Ringe</span>
+                    </div>
+                    <div class="card-row">
+                        <span class="name">Author</span>
+                        <span class="value">Tolkien</span>
+                    </div>
+                    <div class="notes">
+                        <span class="name">Notes</span>
+                        <p class="value">
+                            Lorem ipsum dolor adipisicing elit. reprehenderit.
+                            Amet dicta tenetur delectus eligendi provident
+                            aliquid laudantium unde deserunt?
+                        </p>
+                    </div>
+                    <div class="card-row">
+                        <span class="name">pages</span>
+                        <span class="value">200</span>
+                    </div>
+                    <div class="last-row">
+                        <button class="readButton">read</button>
+                        <button class="deleteButton">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">created by Laurenz Soltau</div>
+    </body>
+</html>
