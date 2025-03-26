@@ -9,16 +9,15 @@ addBookButton.addEventListener(
     () => (form.style.visibility = "visible")
 );
 
-function Book(title, author, notes, pages, read) {
-    if (!new.target) {
-        throw Error("Use New!");
+class Book {
+    constructor(title, author, notes, pages, red) {
+        this.title = title;
+        this.author = author;
+        this.notes = notes;
+        this.pages = pages;
+        this.read = read;
+        this.id = crypto.randomUUID();
     }
-    this.title = title;
-    this.author = author;
-    this.notes = notes;
-    this.pages = pages;
-    this.read = read;
-    this.id = crypto.randomUUID();
 }
 
 function handleAddBook(e) {
