@@ -10,7 +10,7 @@ addBookButton.addEventListener(
 );
 
 class Book {
-    constructor(title, author, notes, pages, red) {
+    constructor(title, author, notes, pages, read) {
         this.title = title;
         this.author = author;
         this.notes = notes;
